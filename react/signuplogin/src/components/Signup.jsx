@@ -8,9 +8,11 @@ const signup = () => {
   const sendit = () => {
     event.preventDefault()
     const info ={
+	  key:Math.floor(Math.random() *1000),
       name,
       gmail,
-      pass
+      pass,
+	  authorized:"No"
     }
     let updated=[...arr,info]
     
