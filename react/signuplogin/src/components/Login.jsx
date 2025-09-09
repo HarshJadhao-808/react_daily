@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
+	const { setUser_obj } = useContext(Mycontext);
 	const navigator = useNavigate();
 	const [logindata, setlogindata] = useState({
 		email: "",
@@ -20,15 +21,30 @@ const Login = () => {
 		signupdata.find((data) => {
 			if (data.email == logindata.email) {
 				if (data.password == logindata.password) {
+				if(data.role == "user"){
 					Swal.fire({
-								// position: "top-end",
-								icon: "success",
-								title: "Login Sucessful",
-								showConfirmButton: false,
-								timer: 1500,
-							});
-							navigator("/")
-				} else {
+						// position: "top-end",
+						icon: "success",
+						title: "Login Sucessful",
+						showConfirmButton: false,
+						timer: 1500,
+					});
+					navigator("/")
+					setUser_obj(data)
+				}else{
+					Swal.fire({
+						position: "top",
+						icon: "success",
+						title: `Hello ${data.name}`,
+						theme:"borderless",
+						showConfirmButton: false,
+						timer: 1500,
+					});
+					navigator("/Admin")
+					setUser_obj(data)
+				}
+						}	
+				else {
 					Swal.fire({
 						// position: "top-end",
 						icon: "error",

@@ -94,3 +94,75 @@ nav{
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
 }
+
+#admin_pages{
+  /* border: 2px solid red; */
+  width: 500px;
+}
+
+#logout {
+  padding: 8px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f43f5e, #e11d48); /* red gradient */
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+#logout:hover {
+  background: linear-gradient(135deg, #e11d48, #9f1239); /* darker red on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+#logout:active {
+  transform: scale(0.95);
+}
+
+#userdatabasetable {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  text-align: left;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+#userdatabasetable thead {
+  background: linear-gradient(135deg, #6366f1, #4338ca); /* Indigo gradient */
+  color: #ffffff;
+}
+
+#userdatabasetable th,
+#userdatabasetable td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e5e7eb; /* light gray */
+}
+
+#userdatabasetable th {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#userdatabasetable tbody tr {
+  transition: background 0.2s ease;
+}
+
+#userdatabasetable tbody tr:hover {
+  background: #f9fafb; /* subtle highlight */
+}
+
+#userdatabasetable tbody tr:last-child td {
+  border-bottom: none;
+}
