@@ -1,49 +1,66 @@
-import React, { useEffect, useState } from "react";
-import { useContext } from "react";
+import React, { use, useContext, useState } from "react";
 import { Mycontext } from "./Mycontext";
 import { useNavigate } from "react-router-dom";
-import "../../src/App.css";
+import Swal from "sweetalert2";
+
 const Login = () => {
-  const navigator=useNavigate()
-	const arr = JSON.parse(localStorage.getItem("signup_data")) || [];
-	const login = useContext(Mycontext);
-	const [gmail, setgmail] = useState("");
-	const [pass, setpass] = useState("");
-	const findname = (name) => {
-		const Username = name;
-		localStorage.setItem("Username", JSON.stringify(Username));
+	const navigator = useNavigate();
+	const [logindata, setlogindata] = useState({
+		email: "",
+		password: "",
+	});
+	const makeit = (e) => {
+		setlogindata({ ...logindata, [e.target.name]: e.target.value });
 	};
 
-  
-	const checkit = (event) => {
+	const checkit = async (event) => {
 		event.preventDefault();
-		arr.map((el) => {
-			if (gmail == el.gmail) {
-				if (pass == el.pass) {
-					console.log("You are authorized");
-					findname(el.name);
-          navigator("/")
-					alert("You are authorized");
+		let res = await fetch("http://localhost:3000/users");
+		let signupdata = await res.json();
+		signupdata.find((data) => {
+			if (data.email == logindata.email) {
+				if (data.password == logindata.password) {
+					Swal.fire({
+								// position: "top-end",
+								icon: "success",
+								title: "Login Sucessful",
+								showConfirmButton: false,
+								timer: 1500,
+							});
+							navigator("/")
 				} else {
-					console.log("Your password is incorrect");
+					Swal.fire({
+						// position: "top-end",
+						icon: "error",
+						title: "Wrong Password",
+						showConfirmButton: false,
+						timer: 1500,
+					});
 				}
 			} else {
-				console.log("Your gmail is incorrect");
+				Swal.fire({
+					// position: "top-end",
+					icon: "warning",
+					title: "Invalid Credentials",
+					showConfirmButton: false,
+					timer: 1500,
+				});
 			}
 		});
 	};
+
 	return (
-		<div>
+		<div id="main">
 			<form onSubmit={checkit} id="form">
 				<label>G-mail</label>
 				<br />
 				<br />
-				<input type="text" onChange={(el) => setgmail(el.target.value)} />
+				<input type="text" onChange={makeit} name="email" />
 				<br />
 				<br />
 				<label>Password</label>
 				<br />
-				<input type="number" onChange={(el) => setpass(el.target.value)} />
+				<input type="password" onChange={makeit} name="password" />
 				<br />
 				<br />
 				<input id="submit" type="submit" value={"Login"} />

@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router ,Routes ,Route } from 'react-router-dom'
 import Navbar from './Navbar'
-import Signup from './Signup'
-import Login from './Login'
+import Signup from './signup'
 import Hweb from './Hweb'
+import Login from './login'
 const Allroutes = () => {
   return (
 		<div>

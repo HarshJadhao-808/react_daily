@@ -16,7 +16,7 @@ const Contextprovider = ({ children }) => {
 	};
 	const login = (username) => {
 		localStorage.setItem("Username", JSON.stringify(username));
-		setName(username); // ✅ triggers Navbar re-render
+		setName(username); // 
 	};
 
 	const age = "34";

@@ -15,8 +15,15 @@ const Navbar = () => {
 					</Link>
 				</li>
 			</ul>
-			
-			{!Name ? 
+
+			{Name ? (
+				<ul>
+					<li>{Name}</li>
+					<li>
+						<button onClick={logout}>Logout</button>
+					</li>
+				</ul>
+			) : (
 				<ul id="pages">
 					<li>
 						<Link className="link" to="/signup">
@@ -28,13 +35,8 @@ const Navbar = () => {
 							Login
 						</Link>
 					</li>
-				</ul>: <ul>
-					<li>{Name}</li>
-					<li>
-						<button onClick={logout}>Logout</button>
-					</li>
-				</ul>	
-			}
+				</ul>
+			)}
 		</nav>
 	);
 };

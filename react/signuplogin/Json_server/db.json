@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "d954",
+      "name": "Harsh",
+      "email": "harsh@gmail.com",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "34bb",
+      "name": "Vivek",
+      "email": "vivek@gmail.com",
+      "password": "420",
+      "role": "user"
+    }
+  
+  ]
+}

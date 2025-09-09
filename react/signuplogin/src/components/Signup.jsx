@@ -1,48 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const signup = () => {
-  const [arr,setarr]=useState( JSON.parse(localStorage.getItem("signup_data")) || [])
-  const [name,setname]=useState("")
-  const [gmail,setgmail]=useState("")
-  const [pass,setpass]=useState("")
-  const sendit = () => {
-    event.preventDefault()
-    const info ={
-	  key:Math.floor(Math.random() *1000),
-      name,
-      gmail,
-      pass,
-	  authorized:"No"
-    }
-    let updated=[...arr,info]
-    
-    setarr(updated)
-    localStorage.setItem("signup_data",JSON.stringify(updated))
-    alert("Signup successfull")
+const Signup = () => {
+	const navigator=useNavigate()
+	const [arr, setarr] = useState(
+		JSON.parse(localStorage.getItem("signup_data")) || []
+	);
+	const [userdata, setuserdata] = useState({
+		name: "",
+		email: "",
+		password: "",
+	});
+	const sendit = async () => {
+		event.preventDefault();
+		let res = await fetch("http://localhost:3000/users", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ ...userdata, role: "user" }),
+		});
 
-  }
-  return (
+		Swal.fire({
+			// position: "top-end",
+			icon: "success",
+			title: "Signup Sucessful",
+			showConfirmButton: false,
+			timer: 1500,
+		});
+		navigator("/login");
+
+	};
+
+	const handlechange = (e) => {
+		setuserdata({ ...userdata, [e.target.name]: e.target.value });
+	};
+	return (
 		<div id="main">
 			<form onSubmit={sendit} id="form">
 				<label>Username</label>
 				<br />
-				<input type="text" onChange={(el) => setname(el.target.value)} />
+				<input type="text" onChange={handlechange} name="name" />
+
 				<br />
 				<br />
 				<label>G-mail</label>
 				<br />
-				<input type="gmail" onChange={(el) => setgmail(el.target.value)} />
+				<input type="email" onChange={handlechange} name="email" />
 				<br />
 				<br />
 				<label>Password</label>
 				<br />
-				<input type="number" onChange={(el) => setpass(el.target.value)} />
+				<input type="password" onChange={handlechange} name="password" />
 				<br />
 				<br />
-				<input id="submit" type="submit" value={"Signin"} />
+				<input id="submit" type="submit" value={"Signup"} />
 			</form>
 		</div>
 	);
-}
+};
 
-export default signup
+export default Signup;
