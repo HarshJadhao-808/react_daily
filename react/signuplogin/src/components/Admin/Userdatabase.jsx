@@ -9,19 +9,16 @@ const Userdatabase = () => {
 		// console.log(data);
 		setUser(data);
 	};
-	getdata();
+	useEffect(()=>{
+		getdata();
+	},[])
 
-    const deleteit = (key) => {
-        let updated = user.filter((el)=> el.id !== key )
-        setUser(updated)
-        const Sendupdate = async() => {
-            let res = await fetch("http://localhost:3000/users", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(updated),
+    const deleteit = async(key) => {
+			let res = await fetch(`http://localhost:3000/users/${key}`, {
+				method: "DELETE",
             });
-        }
-        Sendupdate()
+        
+		setUser(user.filter((el)=> el.id !== key ))
     }
 
 	return (
