@@ -1,19 +1,14 @@
 {
-  "users": [
-    {
-      "id": "d954",
-      "name": "Harsh",
-      "email": "harsh@gmail.com",
-      "password": "123",
-      "role": "user"
-    },
-    {
-      "id": "12fa",
-      "name": "Harsh",
-      "email": "Admin@gmail.com",
-      "password": "admin",
-      "role": "admin"
-    }
+  "users": [   
+      {
+        "id": "12fa",
+        "name": "Harsh",
+        "email": "Admin@gmail.com",
+        "password": "admin",
+        "role": "admin",
+        "state": "saved"
+      }
+ 
   ],
   "products": [
     {
@@ -27,6 +22,18 @@
       "name": "LED",
       "price": "799",
       "url": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQgQd9zSC09n_RXvUCb3Z04ChIhjLnZVnRUr9jXnXx6IraG4bnxgeusZw1kamRZU8jb1-m4cFL0EyLb_On4VoD2j9MCdLCJBxXpTEPAu7Ac5rhrli2RpT42"
+    },
+    {
+      "id": "82ad",
+      "name": "Moto G",
+      "price": "599",
+      "url": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTKCSLTlw4fAJDSLeJhMxoijnxjsbCXOa206cDD7Omu9AOkdoWmIBD0tSqlbbcAu942zpAhnCDLxjaLQFrHSRrAa1Zllksk0fhGkBJedwzBc-_poLBz96q8"
+    },
+    {
+      "id": "a5e7",
+      "name": "i phone SE2",
+      "price": "48000",
+      "url": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRy1CZixKTK9LUZqVkYZxIHcC1U7ZL7R8Ewy9LvwTbgJYZuXjtl9i5Ygla54fqh1Xl1bXLTyPG10W7qCTZQh1u2LRRibEXicYc6JJe6ErMHsjaIkloER4xbHA"
     }
   ]
 }

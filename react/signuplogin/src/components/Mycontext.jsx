@@ -7,11 +7,11 @@ const Contextprovider = ({ children }) => {
 	
      
 	const logout = () => {
+		localStorage.removeItem("User")
 		setUser_obj(null)
 	};
-	const login = (username) => {
-		localStorage.setItem("Username", JSON.stringify(username));
-		setName(username); // 
+	const login = (data) => {
+		localStorage.setItem("User", JSON.stringify(data));
 	};
 
 	const age = "34";

@@ -3,7 +3,7 @@ import { Link,Navigate, useNavigate } from "react-router-dom";
 import { Mycontext } from "./Mycontext";
 const Navbar = () => {
 	const { User_obj, logout } = useContext(Mycontext);
-
+    let User = JSON.parse(localStorage.getItem("User"));
 //   console.log(User_obj);
 
 	return (
@@ -16,15 +16,15 @@ const Navbar = () => {
 				</li>
 			</ul>
 
-			{User_obj ? (
-				User_obj.role === "user" ? (
+			{User ? (
+				User.role === "user" ? (
 					<ul>
-						<li>{User_obj.name}</li>
+						<li>{User.name}</li>
 						<li>
 							<button onClick={logout}>Logout</button>
 						</li>
 					</ul>
-				) : User_obj.role === "admin" ? (
+				) : User.role === "admin" ? (
 					<ul id="admin_pages">
 						<li>
 							<Link className="link" to="/">

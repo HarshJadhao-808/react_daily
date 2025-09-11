@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
-	const { setUser_obj } = useContext(Mycontext);
+	const { setUser_obj ,login ,setrole } = useContext(Mycontext);
 	const navigator = useNavigate();
 	const [logindata, setlogindata] = useState({
 		email: "",
@@ -30,7 +30,9 @@ const Login = () => {
 						timer: 1500,
 					});
 					navigator("/")
+					login(data.name)
 					setUser_obj(data)
+					setrole(data.role)
 				}else{
 					Swal.fire({
 						position: "top",
@@ -42,6 +44,8 @@ const Login = () => {
 					});
 					navigator("/Admin")
 					setUser_obj(data)
+					login(data);
+
 				}
 						}	
 				else {

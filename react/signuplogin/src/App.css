@@ -261,3 +261,21 @@ nav{
   background: linear-gradient(135deg, #6366f1, #4338ca);
   color: white;
 }
+.main_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px soilid red;
+}
+.main_parent{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.main_div>img{
+  width: 250px;
+  /* height: 250px; */
+}
+
+

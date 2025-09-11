@@ -17,7 +17,7 @@ const Signup = () => {
 		let res = await fetch("http://localhost:3000/users", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ ...userdata, role: "user" }),
+			body: JSON.stringify({ ...userdata, role: "user",state:"saved" }),
 		});
 
 		Swal.fire({
