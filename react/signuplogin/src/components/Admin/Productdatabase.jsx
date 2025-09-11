@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
 
 const Productdatabase = () => {
+	const [tabledata, settabledata] = useState([]);
 
-  const [tabledata, settabledata]=useState([])
+	const getdata = async (dta) => {
+		let res = await fetch("http://localhost:3000/products");
+		let data = await res.json();
+		settabledata(data);
+		// console.log(tabledata);
+	};
 
-  const getdata = async(dta) => {
-    let res= await fetch("http://localhost:3000/products");
-    let data = await res.json()
-    settabledata(data)
-	// console.log(tabledata);
-  } 
-
-
-
-
-	const [view, setview] = useState("form")
+	const [view, setview] = useState("form");
 	const [product_data, setproduct_data] = useState({
 		name: "",
 		price: "",
@@ -33,10 +29,10 @@ const Productdatabase = () => {
 		});
 		setproduct_data({ name: "", price: "", url: "" });
 	};
-  
-   useEffect(() => {
-			getdata();
-		}, [tabledata]);
+
+	useEffect(() => {
+		getdata();
+	}, [tabledata]);
 
 	return (
 		<div id="whole_page">
@@ -110,18 +106,15 @@ const Productdatabase = () => {
 								</tr>
 							</thead>
 							<tbody>
-							
-
-								{tabledata.map((el)=>(
-									
+								{tabledata.map((el) => (
 									// console.log(el)
-            	 	 <tr key={el.id}>
-                		<td>{el.name}</td>
-               			 <td>{el.price}</td>
-                		 <td>{el.url}</td>
-                		<td>Delete</td>
-            		  </tr>
-             ))}
+									<tr key={el.id}>
+										<td>{el.name}</td>
+										<td>{el.price}</td>
+										<td>{el.url}</td>
+										<td>Delete</td>
+									</tr>
+								))}
 							</tbody>
 						</table>
 					</div>

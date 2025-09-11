@@ -1,14 +1,29 @@
 {
-  "users": [   
-      {
-        "id": "12fa",
-        "name": "Harsh",
-        "email": "Admin@gmail.com",
-        "password": "admin",
-        "role": "admin",
-        "state": "saved"
-      }
- 
+  "users": [
+    {
+      "id": "12fa",
+      "name": "Harsh",
+      "email": "Admin@gmail.com",
+      "password": "admin",
+      "role": "admin",
+      "state": "saved"
+    },
+    {
+      "id": "4643",
+      "name": "Harsh",
+      "email": "harsh@gmail.com",
+      "password": "123",
+      "role": "user",
+      "state": "saved"
+    },
+    {
+      "name": "Amol",
+      "email": "amol@gmail.com",
+      "password": "123",
+      "role": "user",
+      "state": "saved",
+      "id": "dc79"
+    }
   ],
   "products": [
     {
