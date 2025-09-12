@@ -1,9 +1,9 @@
-import React, { use, useContext, useState } from "react";
+import React, { use, useContext, useState, useEffect } from "react";
 import { Mycontext } from "./Mycontext";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Login = () => {
+  const Login = () => {
 	const { setUser_obj ,login  } = useContext(Mycontext);
 	const navigator = useNavigate();
 	const [logindata, setlogindata] = useState({
@@ -14,60 +14,63 @@ const Login = () => {
 		setlogindata({ ...logindata, [e.target.name]: e.target.value });
 	};
 
-	const checkit = async (event) => {
-		event.preventDefault();
-		let res = await fetch("http://localhost:3000/users");
-		let signupdata = await res.json();
-		signupdata.find((data) => {
-			if (data.email == logindata.email) {
-				if (data.password == logindata.password) {
-				if(data.role == "user"){
-					Swal.fire({
-						// position: "top-end",
-						icon: "success",
-						title: "Login Sucessful",
-						showConfirmButton: false,
-						timer: 1500,
-					});
-					navigator("/")
-					login(data)
-					setUser_obj(data)
-					
-				}else{
-					Swal.fire({
-						position: "top",
-						icon: "success",
-						title: `Hello ${data.name}`,
-						theme:"borderless",
-						showConfirmButton: false,
-						timer: 1500,
-					});
-					navigator("/Admin")
-					setUser_obj(data)
-					login(data);
 
-				}
-						}	
-				else {
+
+	
+
+    const checkit = async () => {
+			event.preventDefault();
+			let res = await fetch("http://localhost:3000/users");
+			let signupdata = await res.json();
+			signupdata.find((data) => {
+				if (data.email == logindata.email) {
+					if (data.password == logindata.password) {
+						if (data.role == "user") {
+							Swal.fire({
+								// position: "top-end",
+								icon: "success",
+								title: "Login Sucessful",
+								showConfirmButton: false,
+								timer: 1500,
+							});
+							navigator("/");
+							login(data);
+							setUser_obj(data);
+						} else {
+							Swal.fire({
+								position: "top",
+								icon: "success",
+								title: `Hello ${data.name}`,
+								theme: "borderless",
+								showConfirmButton: false,
+								timer: 1500,
+							});
+							navigator("/Admin");
+							setUser_obj(data);
+							login(data);
+						}
+					} else {
+						Swal.fire({
+							// position: "top-end",
+							icon: "error",
+							title: "Wrong Password",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					}
+				} else {
 					Swal.fire({
 						// position: "top-end",
-						icon: "error",
-						title: "Wrong Password",
+						icon: "warning",
+						title: "Invalid Credentials",
 						showConfirmButton: false,
 						timer: 1500,
 					});
 				}
-			} else {
-				Swal.fire({
-					// position: "top-end",
-					icon: "warning",
-					title: "Invalid Credentials",
-					showConfirmButton: false,
-					timer: 1500,
-				});
-			}
-		});
-	};
+			});
+		};
+
+	
 
 	return (
 		<div id="main">
