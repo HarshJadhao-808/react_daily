@@ -279,3 +279,12 @@ nav{
 }
 
 
+.tdinputs{
+  border: none;
+  outline: none;   /* removes blue outline on focus */
+  background: transparent; /* makes it blend with table background */
+  font-size: 16px; /* keep text clean */
+  width: 100%;     /* fills the table cell nicely */
+
+
+}

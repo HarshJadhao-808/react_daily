@@ -1,19 +1,27 @@
 {
   "users": [
     {
-      "id": "2838",
+      "id": "28",
       "name": "Harsh",
-      "email": "jadhaoharsh141@gmail.com",
-      "password": "123456",
+      "email": "Admin@gmail.com",
+      "password": "admin",
+      "role": "admin",
+      "state": "saved"
+    },
+    {
+      "id": "7c13",
+      "name": "Anon",
+      "email": "anon@gmail.com",
+      "password": "123",
       "role": "user",
       "state": "saved"
     },
     {
-      "id": "2838",
-      "name": "Admin",
-      "email": "Admin@gmail.com",
-      "password": "123456",
-      "role": "admin",
+      "id": "1707",
+      "name": "Aman",
+      "email": "aman@gmail.com",
+      "password": "123",
+      "role": "user",
       "state": "saved"
     }
   ],
