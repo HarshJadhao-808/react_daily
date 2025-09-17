@@ -4,7 +4,7 @@
       "id": "28",
       "name": "Harsh",
       "email": "Admin@gmail.com",
-      "password": "admin",
+      "password": "admin@123",
       "role": "admin",
       "state": "saved"
     },
@@ -18,8 +18,16 @@
     },
     {
       "id": "1707",
-      "name": "Aman",
+      "name": "kuch_bhi",
       "email": "aman@gmail.com",
+      "password": "678",
+      "role": "user",
+      "state": "saved"
+    },
+    {
+      "id": "dda8",
+      "name": "Amol",
+      "email": "amol@gmail.com",
       "password": "123",
       "role": "user",
       "state": "saved"
@@ -30,25 +38,29 @@
       "id": "3064",
       "name": "Twa",
       "price": "200",
+      "state": "saved",
       "url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTv1KOV1Jmk98kHgFXNqwGryaCIr-NbGmJ7s5CqADBYw0Wqw5LSQHF3RlfhJdww7MxptIZMN0khFMWxSD3nOjSmaXAkfZfQYvo7ixoc-G4jvQ"
     },
     {
       "id": "d7f5",
       "name": "LED",
       "price": "799",
+      "state": "saved",
       "url": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQgQd9zSC09n_RXvUCb3Z04ChIhjLnZVnRUr9jXnXx6IraG4bnxgeusZw1kamRZU8jb1-m4cFL0EyLb_On4VoD2j9MCdLCJBxXpTEPAu7Ac5rhrli2RpT42"
     },
     {
-      "id": "82ad",
-      "name": "Moto G",
-      "price": "599",
-      "url": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTKCSLTlw4fAJDSLeJhMxoijnxjsbCXOa206cDD7Omu9AOkdoWmIBD0tSqlbbcAu942zpAhnCDLxjaLQFrHSRrAa1Zllksk0fhGkBJedwzBc-_poLBz96q8"
+      "id": "97df",
+      "name": "Aman",
+      "price": "600",
+      "state": "saved",
+      "url": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQgQd9zSC09n_RXvUCb3Z04ChIhjLnZVnRUr9jXnXx6IraG4bnxgeusZw1kamRZU8jb1-m4cFL0EyLb_On4VoD2j9MCdLCJBxXpTEPAu7Ac5rhrli2RpT42"
     },
     {
-      "id": "a5e7",
-      "name": "i phone SE2",
-      "price": "48000",
-      "url": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRy1CZixKTK9LUZqVkYZxIHcC1U7ZL7R8Ewy9LvwTbgJYZuXjtl9i5Ygla54fqh1Xl1bXLTyPG10W7qCTZQh1u2LRRibEXicYc6JJe6ErMHsjaIkloER4xbHA"
+      "id": "c240",
+      "name": "Amol",
+      "price": "399",
+      "url": "https://media-pnq1-1.cdn.whatsapp.net/v/t61.24694-24/548891249_1152489353437619_6750426207640547857_n.jpg?ccb=11-4&oh=01_Q5Aa2gHRRB83-30u11sVrZpWIRztkPEmdeeqYIgunaKQi_PWEg&oe=68D7B4F2&_nc_sid=5e03e0&_nc_cat=106",
+      "state": "saved"
     }
   ]
 }

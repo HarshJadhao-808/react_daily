@@ -29,7 +29,7 @@ const Userdatabase = () => {
 	
 	}
 	
-	const confirmit = async (el,id) => {
+	const confirmit = async (id) => {
 		let new_obj=user.find((el)=> el.id == id)
 		setuser(user.map((el)=>el.id == id ? {...el,state : "saved"}:el)); 
 		await axios.put(`http://localhost:3000/users/${id}`,{...new_obj,state : "saved"});
@@ -76,7 +76,7 @@ const Userdatabase = () => {
 						<td><input className="tdinputs" onChange={(e)=>handlechange(e,el.id)} name="email" value={el.email} type="text"  /></td>
 						<td><input className="tdinputs" onChange={(e)=>handlechange(e,el.id)} name="password" value={el.password} type="text"  /></td>
 						<td><input className="tdinputs" onChange={(e)=>handlechange(e,el.id)} name="role" value={el.role} type="text"  /></td>
-						<td style={{cursor:"pointer"}} onClick={()=> confirmit(el,el.id)}>Confirm</td>
+						<td style={{cursor:"pointer"}} onClick={()=> confirmit(el.id)}>Confirm</td>
 						<td style={{cursor:"pointer"}} onClick={()=> deleteit(el.id)}>Delete</td>
 						</>
 					}

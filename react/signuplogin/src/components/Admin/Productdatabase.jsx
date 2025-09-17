@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios'
+import Swal from "sweetalert2";
 
 const Productdatabase = () => {
 	const [tabledata, settabledata] = useState([]);
@@ -15,6 +17,7 @@ const Productdatabase = () => {
 		name: "",
 		price: "",
 		url: "",
+		state:"saved"
 	});
 	const handle_change = (e) => {
 		setproduct_data({ ...product_data, [e.target.name]: e.target.value });
@@ -32,8 +35,42 @@ const Productdatabase = () => {
 
 	useEffect(() => {
 		getdata();
-	}, [tabledata]);
+	}, []);
 
+
+
+	// here code is for crud update and delete operations
+
+	const deleteit = async(id) => {
+		await axios.delete(`http://localhost:3000/products/${id}`);
+		getdata()
+	}
+
+	const updatechange = (e,id)=> {
+		const {name , value} = e.target
+		console.log(name)
+		console.log(value)
+		settabledata(tabledata.map((el)=> el.id === id ? {...el,[name] : value } : el))
+		// getdata()
+	}
+	
+	const Updateit = (id) => {
+		settabledata(tabledata.map((el)=>el.id === id ?{...el,state : "update"}:el))
+	}
+	
+	const saveit = async(id) => {
+		
+		let data = tabledata.find((el)=> el.id == id)
+		settabledata(tabledata.map((el)=>el.id === id ?{...el,state : "saved"}:el))
+		await axios.put(`http://localhost:3000/products/${id}`,{...data,state : "saved"});
+		Swal.fire({
+					text: "changes saved !",
+					icon: "success",
+				});
+		getdata()
+
+	}
+	
 	return (
 		<div id="whole_page">
 			<div id="switch">
@@ -103,16 +140,30 @@ const Productdatabase = () => {
 									<th>Price</th>
 									<th>URL</th>
 									<th>Update</th>
+									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
 								{tabledata.map((el) => (
 									// console.log(el)
 									<tr key={el.id}>
+										{el.state == "saved" ?
+									<>
 										<td>{el.name}</td>
 										<td>{el.price}</td>
 										<td>{el.url}</td>
-										<td>Delete</td>
+										<td style={{cursor:"pointer"}} onClick={()=>Updateit(el.id)}>Update</td>
+										<td style={{cursor:"pointer"}} onClick={()=>deleteit(el.id)} >Delete</td>
+									</>	
+										:
+									<>
+									     <td><input  className="tdinputs" type="text" onChange={(e)=>updatechange(e,el.id)} name="name" value={el.name} /></td>
+									     <td><input  className="tdinputs" type="text" onChange={(e)=>updatechange(e,el.id)} name="price" value={el.price} /></td>
+									     <td><input  className="tdinputs" type="text" onChange={(e)=>updatechange(e,el.id)} name="url" value={el.url} /></td>
+										 <td style={{cursor:"pointer"}} onClick={()=>saveit(el.id)}>Confirm</td>
+										 <td style={{cursor:"pointer"}} onClick={()=>deleteit(el.id)} >Delete</td>
+									</>
+										}
 									</tr>
 								))}
 							</tbody>

@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 import Signup from './signup'
 import Hweb from './Hweb'
 import Login from './Login'
-import Admin from './Admin/admin'
+import Admin from './Admin/Admin'
 import Productdatabase from './Admin/Productdatabase'
 import Userdatabase from './Admin/Userdatabase'
 const Allroutes = () => {

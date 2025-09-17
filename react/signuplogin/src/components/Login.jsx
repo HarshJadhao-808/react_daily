@@ -23,7 +23,9 @@ import Swal from "sweetalert2";
 			let res = await fetch("http://localhost:3000/users");
 			let signupdata = await res.json();
 			signupdata.find((data) => {
-				if (data.email == logindata.email) {
+				if (data.email == logindata.email){
+					console.log(logindata.email)
+					console.log(data.email)
 					if (data.password == logindata.password) {
 						if (data.role == "user") {
 							Swal.fire({
@@ -49,7 +51,7 @@ import Swal from "sweetalert2";
 							setUser_obj(data);
 							login(data);
 						}
-					} else {
+					}else{
 						Swal.fire({
 							// position: "top-end",
 							icon: "error",
@@ -57,8 +59,7 @@ import Swal from "sweetalert2";
 							showConfirmButton: false,
 							timer: 1500,
 						});
-					}
-				} else {
+					}}else{
 					Swal.fire({
 						// position: "top-end",
 						icon: "warning",
